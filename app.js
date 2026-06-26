@@ -1,12 +1,13 @@
 /* ==========================================
-   APP.JS - PART 1
+   APP.JS - FINAL CLEAN VERSION
    POLAMREDDY AJAY KUMAR Portfolio
 ========================================== */
 
+/* ===============================
+   Scroll To Top
+=============================== */
+
 document.addEventListener("DOMContentLoaded", () => {
-    /* ===============================
-       Scroll To Top
-    =============================== */
 
     const topBtn = document.getElementById("topBtn");
 
@@ -27,28 +28,22 @@ document.addEventListener("DOMContentLoaded", () => {
         topBtn.addEventListener("click", () => {
 
             window.scrollTo({
-
                 top: 0,
-
                 behavior: "smooth"
-
             });
 
         });
 
     }
 
-}):
+});
+
+
 /* ==========================================
-   APP.JS - PART 2
    Theme, Mobile Menu & Scroll Animation
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    /* ==========================
-       Dark / Light Mode
-    ========================== */
 
     const themeBtn = document.getElementById("themeBtn");
 
@@ -74,26 +69,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    /* ==========================
-       Mobile Menu
-    ========================== */
-
     const menuBtn = document.getElementById("menuBtn");
     const nav = document.querySelector("nav");
 
     if (menuBtn && nav) {
 
         menuBtn.addEventListener("click", () => {
-
             nav.classList.toggle("active");
-
         });
 
     }
-
-    /* ==========================
-       Scroll Reveal Animation
-    ========================== */
 
     const reveals = document.querySelectorAll(".reveal");
 
@@ -113,20 +98,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     window.addEventListener("scroll", revealOnScroll);
-
     revealOnScroll();
 
 });
+
+
 /* ==========================================
-   APP.JS - PART 3
    Search, Contact Form & Loader
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    /* ==========================
-       Project Search
-    ========================== */
 
     const searchBox = document.getElementById("searchBox");
     const cards = document.querySelectorAll(".project-card");
@@ -141,11 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const text = card.innerText.toLowerCase();
 
-                if (text.includes(value)) {
-                    card.style.display = "block";
-                } else {
-                    card.style.display = "none";
-                }
+                card.style.display = text.includes(value) ? "block" : "none";
 
             });
 
@@ -153,15 +130,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    /* ==========================
-       Contact Form Validation
-    ========================== */
-
     const contactForm = document.getElementById("contactForm");
 
     if (contactForm) {
 
-        contactForm.addEventListener("submit", function(e){
+        contactForm.addEventListener("submit", function (e) {
 
             e.preventDefault();
 
@@ -173,87 +146,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    /* ==========================
-       Loader Hide
-    ========================== */
-
     const loader = document.querySelector(".loader");
 
-    if(loader){
+    if (loader) {
 
-        window.addEventListener("load",()=>{
+        window.addEventListener("load", () => {
 
-            setTimeout(()=>{
+            setTimeout(() => {
 
-                loader.style.opacity="0";
+                loader.style.opacity = "0";
 
-                setTimeout(()=>{
+                setTimeout(() => {
+                    loader.style.display = "none";
+                }, 500);
 
-                    loader.style.display="none";
-
-                },500);
-
-            },800);
+            }, 800);
 
         });
 
     }
 
-    /* ==========================
-       Basic AI Chat
-    ========================== */
+    const sendBtn = document.getElementById("sendBtn");
+    const input = document.getElementById("userInput");
+    const messages = document.getElementById("messages");
 
-    const sendBtn=document.getElementById("sendBtn");
-    const input=document.getElementById("userInput");
-    const messages=document.getElementById("messages");
+    if (sendBtn && input && messages) {
 
-    if(sendBtn && input && messages){
+        sendBtn.addEventListener("click", () => {
 
-        sendBtn.addEventListener("click",()=>{
+            const text = input.value.trim();
+            if (text === "") return;
 
-            const text=input.value.trim();
+            messages.innerHTML += `<div class="chat-message user"><b>You:</b> ${text}</div>`;
 
-            if(text==="") return;
+            let reply = "Welcome! Ask me about skills, projects or contact.";
 
-            messages.innerHTML +=
-            `<div class="chat-message user"><b>You:</b> ${text}</div>`;
-
-            let reply="Welcome! Ask me about my skills, projects, resume or contact details.";
-
-            if(text.toLowerCase().includes("project")){
-                reply="You can view my latest projects in the Projects section.";
+            if (text.toLowerCase().includes("project")) {
+                reply = "You can view my latest projects in the Projects section.";
             }
 
-            if(text.toLowerCase().includes("skill")){
-                reply="I work with HTML, CSS, JavaScript, React, Firebase and AI.";
+            if (text.toLowerCase().includes("skill")) {
+                reply = "I work with HTML, CSS, JavaScript, React, Firebase and AI.";
             }
 
-            if(text.toLowerCase().includes("contact")){
-                reply="Please visit the Contact page or use the contact form.";
+            if (text.toLowerCase().includes("contact")) {
+                reply = "Please use the contact section.";
             }
 
-            messages.innerHTML +=
-            `<div class="chat-message bot"><b>AI:</b> ${reply}</div>`;
+            messages.innerHTML += `<div class="chat-message bot"><b>AI:</b> ${reply}</div>`;
 
-            input.value="";
-
-            messages.scrollTop=messages.scrollHeight;
+            input.value = "";
+            messages.scrollTop = messages.scrollHeight;
 
         });
 
     }
 
 });
+
+
 /* ==========================================
-   APP.JS - PART 4
-   Counters, Active Nav, Skill Animation
+   Counters, Skills, Navigation, Toast
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    /* ==========================
-       Animated Counters
-    ========================== */
 
     const counters = document.querySelectorAll(".counter");
 
@@ -262,7 +218,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const target = Number(counter.getAttribute("data-target")) || 0;
 
         let count = 0;
-
         const speed = Math.max(1, Math.ceil(target / 100));
 
         function updateCounter() {
@@ -270,15 +225,10 @@ document.addEventListener("DOMContentLoaded", () => {
             count += speed;
 
             if (count >= target) {
-
                 counter.innerText = target;
-
             } else {
-
                 counter.innerText = count;
-
                 requestAnimationFrame(updateCounter);
-
             }
 
         }
@@ -286,10 +236,6 @@ document.addEventListener("DOMContentLoaded", () => {
         updateCounter();
 
     });
-
-    /* ==========================
-       Skills Progress Animation
-    ========================== */
 
     const progressBars = document.querySelectorAll(".progress span");
 
@@ -300,16 +246,10 @@ document.addEventListener("DOMContentLoaded", () => {
         bar.style.width = "0%";
 
         setTimeout(() => {
-
             bar.style.width = width;
-
         }, 300);
 
     });
-
-    /* ==========================
-       Active Navigation
-    ========================== */
 
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll("nav a");
@@ -323,9 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const top = section.offsetTop - 120;
 
             if (window.scrollY >= top) {
-
                 current = section.getAttribute("id");
-
             }
 
         });
@@ -335,20 +273,14 @@ document.addEventListener("DOMContentLoaded", () => {
             link.classList.remove("active");
 
             if (link.getAttribute("href") === "#" + current) {
-
                 link.classList.add("active");
-
             }
 
         });
 
     });
 
-    /* ==========================
-       Toast Notification
-    ========================== */
-
-    window.showToast = function(message) {
+    window.showToast = function (message) {
 
         const toast = document.createElement("div");
 
@@ -367,25 +299,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.body.appendChild(toast);
 
-        setTimeout(() => {
-
-            toast.remove();
-
-        }, 3000);
+        setTimeout(() => toast.remove(), 3000);
 
     };
 
 });
+
+
 /* ==========================================
-   APP.JS - PART 5 (FINAL)
-   Final Features
+   Clock, Year, Copy Email, PWA
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    /* ==========================
-       Digital Clock
-    ========================== */
 
     const clock = document.getElementById("liveClock");
 
@@ -393,41 +318,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!clock) return;
 
-        const now = new Date();
-
-        clock.innerHTML = now.toLocaleTimeString();
+        clock.innerHTML = new Date().toLocaleTimeString();
 
     }
 
     setInterval(updateClock, 1000);
-
     updateClock();
-
-    /* ==========================
-       Current Year
-    ========================== */
 
     const year = document.getElementById("year");
 
     if (year) {
         year.textContent = new Date().getFullYear();
     }
-
-    /* ==========================
-       Welcome Toast
-    ========================== */
-
-    setTimeout(() => {
-
-        if (typeof showToast === "function") {
-            showToast("🌟 Welcome to POLAMREDDY AJAY KUMAR Portfolio");
-        }
-
-    }, 1500);
-
-    /* ==========================
-       Copy Email
-    ========================== */
 
     const copyBtn = document.getElementById("copyEmail");
 
@@ -444,31 +346,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 await navigator.clipboard.writeText(email);
 
                 if (typeof showToast === "function") {
-                    showToast("📧 Email copied successfully!");
+                    showToast("📧 Email copied!");
                 }
 
             } catch {
-
                 alert("Unable to copy email.");
-
             }
 
         });
 
     }
 
-    /* ==========================
-       PWA Install
-    ========================== */
-
     let deferredPrompt;
-
     const installBtn = document.getElementById("installBtn");
 
     window.addEventListener("beforeinstallprompt", (e) => {
 
         e.preventDefault();
-
         deferredPrompt = e;
 
         if (installBtn) {
@@ -484,17 +378,15 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!deferredPrompt) return;
 
             deferredPrompt.prompt();
-
             await deferredPrompt.userChoice;
 
             deferredPrompt = null;
-
             installBtn.style.display = "none";
 
         });
 
     }
 
-    console.log("✅ Portfolio initialized successfully.");
+    console.log("Portfolio loaded successfully ✔️");
 
 });
