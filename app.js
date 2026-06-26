@@ -4,69 +4,6 @@
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    /* ===============================
-       Welcome Screen
-    =============================== */
-
-    const welcome = document.getElementById("welcome-screen");
-    const skipBtn = document.getElementById("skipBtn");
-    const neverShow = document.getElementById("neverShow");
-
-    if (localStorage.getItem("hideWelcome") === "true") {
-
-        if (welcome) {
-            welcome.style.display = "none";
-        }
-
-    } else {
-
-        setTimeout(() => {
-
-            if (welcome) {
-                welcome.style.opacity = "0";
-
-                setTimeout(() => {
-                    welcome.style.display = "none";
-                }, 1000);
-            }
-
-        }, 6000);
-
-    }
-
-    if (skipBtn) {
-
-        skipBtn.addEventListener("click", () => {
-
-            if (welcome) {
-
-                welcome.style.opacity = "0";
-
-                setTimeout(() => {
-                    welcome.style.display = "none";
-                }, 500);
-
-            }
-
-        });
-
-    }
-
-    if (neverShow) {
-
-        neverShow.addEventListener("change", () => {
-
-            if (neverShow.checked) {
-                localStorage.setItem("hideWelcome", "true");
-            } else {
-                localStorage.removeItem("hideWelcome");
-            }
-
-        });
-
-    }
-
     /* ===============================
        Scroll To Top
     =============================== */
