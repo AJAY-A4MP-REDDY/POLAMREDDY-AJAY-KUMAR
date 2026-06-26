@@ -1,0 +1,1533 @@
+/* ===================================================
+   POLAMREDDY AJAY KUMAR
+   Premium Portfolio
+   Part 1
+=================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+
+--bg:#050816;
+
+--card:rgba(255,255,255,.08);
+
+--gold:#FFD700;
+
+--white:#ffffff;
+
+--text:#d8d8d8;
+
+--radius:20px;
+
+}
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+font-family:'Poppins',sans-serif;
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+background:linear-gradient(135deg,#050816,#111827,#1e293b);
+
+color:var(--white);
+
+overflow-x:hidden;
+
+min-height:100vh;
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:var(--gold);
+
+border-radius:10px;
+
+}
+
+/* Header */
+
+header{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+padding:18px 40px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:rgba(0,0,0,.25);
+
+backdrop-filter:blur(20px);
+
+z-index:999;
+
+}
+
+.logo{
+
+font-size:28px;
+
+font-weight:800;
+
+color:var(--gold);
+
+letter-spacing:2px;
+
+}
+
+nav{
+
+display:flex;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+transition:.3s;
+
+font-weight:500;
+
+}
+
+nav a:hover{
+
+color:var(--gold);
+
+}
+
+/* Welcome Screen */
+
+#welcome-screen{
+
+position:fixed;
+
+inset:0;
+
+background:linear-gradient(135deg,#000,#1e293b);
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+}
+
+#welcome-screen h1{
+
+font-size:3rem;
+
+color:gold;
+
+margin-bottom:20px;
+
+animation:glow 2s infinite;
+
+}
+
+#welcome-screen h2{
+
+font-size:2rem;
+
+margin-bottom:10px;
+
+}
+
+#welcome-screen p{
+
+color:#ddd;
+
+margin-bottom:30px;
+
+}
+
+.bouquet{
+
+font-size:80px;
+
+animation:float 3s infinite;
+
+}
+
+button{
+
+padding:14px 28px;
+
+border:none;
+
+border-radius:40px;
+
+background:gold;
+
+color:black;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+}
+
+/* Hero */
+
+#home{
+
+height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+
+}
+
+#home h1{
+
+font-size:4rem;
+
+margin-bottom:20px;
+
+}
+
+#home p{
+
+font-size:20px;
+
+max-width:700px;
+
+color:#ddd;
+
+margin-bottom:40px;
+
+}
+
+/* Cards */
+
+.project-card,
+
+.service-card,
+
+.blog-card,
+
+.certificate-card,
+
+.social-card{
+
+background:var(--card);
+
+backdrop-filter:blur(20px);
+
+padding:25px;
+
+margin:20px;
+
+border-radius:var(--radius);
+
+border:1px solid rgba(255,255,255,.15);
+
+transition:.4s;
+
+}
+
+.project-card:hover,
+
+.service-card:hover,
+
+.blog-card:hover,
+
+.certificate-card:hover,
+
+.social-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 0 25px gold;
+
+}
+
+/* Sections */
+
+section{
+
+padding:120px 8%;
+
+}
+
+h2{
+
+font-size:40px;
+
+margin-bottom:40px;
+
+color:gold;
+
+text-align:center;
+
+}
+
+/* Footer */
+
+footer{
+
+text-align:center;
+
+padding:30px;
+
+background:#000;
+
+color:#aaa;
+
+}
+
+/* Animations */
+
+@keyframes glow{
+
+0%{text-shadow:0 0 10px gold;}
+
+50%{text-shadow:0 0 40px gold;}
+
+100%{text-shadow:0 0 10px gold;}
+
+}
+
+@keyframes float{
+
+0%{transform:translateY(0);}
+
+50%{transform:translateY(-15px);}
+
+100%{transform:translateY(0);}
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+header{
+
+padding:15px;
+
+flex-direction:column;
+
+}
+
+.logo{
+
+font-size:20px;
+
+}
+
+nav{
+
+justify-content:center;
+
+}
+
+#home h1{
+
+font-size:2.2rem;
+
+}
+
+#welcome-screen h1{
+
+font-size:2rem;
+
+}
+
+  }
+/* ==========================================
+   STYLE.CSS - PART 2
+   Premium Components
+========================================== */
+
+/* About Section */
+
+#about{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:40px;
+
+align-items:center;
+
+}
+
+.about-image img{
+
+width:100%;
+
+border-radius:20px;
+
+border:3px solid gold;
+
+box-shadow:0 0 30px rgba(255,215,0,.5);
+
+}
+
+.about-content p{
+
+font-size:18px;
+
+line-height:1.8;
+
+color:#ddd;
+
+}
+
+/* Skills */
+
+.skills-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+}
+
+.skill-box{
+
+background:rgba(255,255,255,.08);
+
+padding:20px;
+
+border-radius:20px;
+
+backdrop-filter:blur(15px);
+
+}
+
+.skill-title{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-bottom:10px;
+
+font-weight:bold;
+
+}
+
+.progress{
+
+height:10px;
+
+background:#333;
+
+border-radius:20px;
+
+overflow:hidden;
+
+}
+
+.progress span{
+
+display:block;
+
+height:100%;
+
+background:linear-gradient(90deg,gold,#ff9800);
+
+border-radius:20px;
+
+}
+
+/* Gallery */
+
+.gallery-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:20px;
+
+}
+
+.gallery-grid img{
+
+width:100%;
+
+height:220px;
+
+object-fit:cover;
+
+border-radius:15px;
+
+transition:.4s;
+
+cursor:pointer;
+
+}
+
+.gallery-grid img:hover{
+
+transform:scale(1.05);
+
+box-shadow:0 0 20px gold;
+
+}
+
+/* Contact */
+
+.contact-section{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:40px;
+
+}
+
+.contact-section input,
+
+.contact-section textarea{
+
+width:100%;
+
+padding:15px;
+
+margin-bottom:15px;
+
+background:#111827;
+
+border:1px solid rgba(255,255,255,.2);
+
+border-radius:12px;
+
+color:white;
+
+}
+
+.contact-section textarea{
+
+height:180px;
+
+resize:none;
+
+}
+
+/* Resume */
+
+.resume-buttons{
+
+display:flex;
+
+gap:20px;
+
+justify-content:center;
+
+margin-top:30px;
+
+flex-wrap:wrap;
+
+}
+
+.resume-buttons a{
+
+padding:15px 30px;
+
+background:gold;
+
+color:black;
+
+border-radius:40px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.resume-buttons a:hover{
+
+transform:scale(1.05);
+
+}
+
+/* Social */
+
+.social-card{
+
+text-align:center;
+
+}
+
+.social-card a{
+
+display:inline-block;
+
+margin-top:15px;
+
+padding:10px 25px;
+
+background:gold;
+
+color:black;
+
+border-radius:30px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+}
+
+/* AI Chat */
+
+.chat-box{
+
+background:rgba(255,255,255,.08);
+
+padding:20px;
+
+border-radius:20px;
+
+backdrop-filter:blur(15px);
+
+}
+
+.messages{
+
+height:300px;
+
+overflow-y:auto;
+
+padding:15px;
+
+background:#111827;
+
+border-radius:15px;
+
+margin-bottom:20px;
+
+}
+
+#userInput{
+
+width:100%;
+
+padding:15px;
+
+border-radius:15px;
+
+border:none;
+
+margin-bottom:15px;
+
+background:#1f2937;
+
+color:white;
+
+}
+
+/* Footer */
+
+footer{
+
+border-top:1px solid rgba(255,255,255,.1);
+
+margin-top:50px;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+#about{
+
+grid-template-columns:1fr;
+
+}
+
+.contact-section{
+
+grid-template-columns:1fr;
+
+}
+
+.resume-buttons{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+  }
+/* ==========================================
+   STYLE.CSS - PART 3
+   Premium Effects & Animations
+========================================== */
+
+/* Welcome Screen Background */
+
+#welcome-screen{
+background:linear-gradient(-45deg,#050816,#111827,#1f2937,#000);
+background-size:400% 400%;
+animation:bgMove 10s ease infinite;
+}
+
+/* Welcome Bouquet */
+
+.bouquet{
+font-size:90px;
+filter:drop-shadow(0 0 20px gold);
+animation:flowerFloat 3s ease-in-out infinite;
+}
+
+/* Golden Glow */
+
+.gold-text{
+color:#FFD700;
+text-shadow:
+0 0 10px gold,
+0 0 20px gold,
+0 0 40px gold;
+}
+
+/* Hero Button */
+
+.btn{
+
+display:inline-block;
+
+padding:15px 35px;
+
+background:linear-gradient(90deg,#FFD700,#ff9800);
+
+border-radius:50px;
+
+text-decoration:none;
+
+color:#000;
+
+font-weight:bold;
+
+transition:.4s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 0 30px gold;
+
+}
+
+/* Floating Cards */
+
+.card{
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+border-radius:20px;
+
+padding:20px;
+
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 0 25px gold;
+
+}
+
+/* Images */
+
+img{
+
+max-width:100%;
+
+display:block;
+
+border-radius:15px;
+
+}
+
+/* Timeline */
+
+.timeline{
+
+position:relative;
+
+padding-left:40px;
+
+}
+
+.timeline::before{
+
+content:"";
+
+position:absolute;
+
+left:15px;
+
+top:0;
+
+width:4px;
+
+height:100%;
+
+background:gold;
+
+}
+
+.timeline-item{
+
+margin-bottom:40px;
+
+position:relative;
+
+}
+
+.timeline-item::before{
+
+content:"";
+
+position:absolute;
+
+left:-33px;
+
+top:5px;
+
+width:18px;
+
+height:18px;
+
+background:gold;
+
+border-radius:50%;
+
+}
+
+/* Fade Animation */
+
+.fade{
+
+opacity:0;
+
+transform:translateY(50px);
+
+transition:1s;
+
+}
+
+.fade.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* Background Animation */
+
+@keyframes bgMove{
+
+0%{
+
+background-position:0% 50%;
+
+}
+
+50%{
+
+background-position:100% 50%;
+
+}
+
+100%{
+
+background-position:0% 50%;
+
+}
+
+}
+
+@keyframes flowerFloat{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-20px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.timeline{
+
+padding-left:20px;
+
+}
+
+.timeline::before{
+
+left:5px;
+
+}
+
+.timeline-item::before{
+
+left:-20px;
+
+}
+
+.btn{
+
+width:100%;
+
+text-align:center;
+
+}
+
+  }
+/* ==========================================
+   STYLE.CSS - PART 4
+   Dark Mode, Loader, Navbar & Utilities
+========================================== */
+
+/* ---------- Dark / Light Theme ---------- */
+
+body.light-mode{
+    background:#f5f5f5;
+    color:#111;
+}
+
+body.light-mode header{
+    background:rgba(255,255,255,.75);
+}
+
+body.light-mode .card,
+body.light-mode .project-card,
+body.light-mode .service-card,
+body.light-mode .blog-card,
+body.light-mode .certificate-card,
+body.light-mode .social-card{
+    background:#ffffff;
+    color:#111;
+    border:1px solid #ddd;
+}
+
+/* ---------- Theme Button ---------- */
+
+.theme-btn{
+    position:fixed;
+    right:20px;
+    bottom:90px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:gold;
+    color:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    z-index:999;
+    font-size:22px;
+    box-shadow:0 0 20px gold;
+}
+
+/* ---------- Scroll To Top ---------- */
+
+#topBtn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    background:gold;
+    color:#000;
+    font-size:24px;
+    cursor:pointer;
+    display:none;
+    z-index:999;
+    transition:.3s;
+}
+
+#topBtn:hover{
+    transform:scale(1.1);
+}
+
+/* ---------- Loader ---------- */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:#050816;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:10000;
+}
+
+.loader-circle{
+    width:80px;
+    height:80px;
+    border:8px solid rgba(255,255,255,.2);
+    border-top:8px solid gold;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+/* ---------- Glass Container ---------- */
+
+.glass{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.15);
+    padding:25px;
+}
+
+/* ---------- Hover Glow ---------- */
+
+.glow:hover{
+    box-shadow:0 0 25px gold;
+    transform:translateY(-6px);
+    transition:.4s;
+}
+
+/* ---------- Mobile Navigation ---------- */
+
+.menu-btn{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+    color:gold;
+}
+
+@media(max-width:768px){
+
+nav{
+    display:none;
+    flex-direction:column;
+    width:100%;
+    background:#111827;
+    margin-top:20px;
+    padding:20px;
+    border-radius:15px;
+}
+
+nav.active{
+    display:flex;
+}
+
+.menu-btn{
+    display:block;
+}
+
+}
+
+/* ---------- Section Animation ---------- */
+
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ---------- Selection ---------- */
+
+::selection{
+    background:gold;
+    color:#000;
+  }
+/* ==========================================
+   STYLE.CSS - PART 5
+   Premium AI, Dashboard & Portfolio
+========================================== */
+
+/* ===== Project Grid ===== */
+
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.project-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:15px;
+margin-bottom:20px;
+}
+
+/* ===== Buttons ===== */
+
+.project-buttons{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.project-buttons a{
+
+flex:1;
+
+text-align:center;
+
+padding:12px;
+
+background:linear-gradient(90deg,#FFD700,#ff9800);
+
+color:#000;
+
+text-decoration:none;
+
+font-weight:700;
+
+border-radius:30px;
+
+transition:.4s;
+
+}
+
+.project-buttons a:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 0 25px gold;
+
+}
+
+/* ===== AI Chat ===== */
+
+.ai-chat{
+
+background:rgba(255,255,255,.08);
+
+padding:30px;
+
+border-radius:25px;
+
+backdrop-filter:blur(20px);
+
+}
+
+.chat-message{
+
+padding:15px;
+
+margin:12px 0;
+
+border-radius:15px;
+
+}
+
+.user{
+
+background:#1e293b;
+
+}
+
+.bot{
+
+background:rgba(255,215,0,.15);
+
+}
+
+/* ===== Dashboard Cards ===== */
+
+.dashboard{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+}
+
+.dashboard-card{
+
+padding:25px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(15px);
+
+text-align:center;
+
+transition:.4s;
+
+}
+
+.dashboard-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 0 20px gold;
+
+}
+
+.dashboard-card h3{
+
+color:gold;
+
+margin-bottom:10px;
+
+}
+
+.dashboard-card p{
+
+font-size:30px;
+
+font-weight:bold;
+
+}
+
+/* ===== Certificate ===== */
+
+.certificate-card img{
+
+width:100%;
+
+height:250px;
+
+object-fit:cover;
+
+border-radius:15px;
+
+}
+
+/* ===== Video ===== */
+
+video{
+
+width:100%;
+
+border-radius:20px;
+
+box-shadow:0 0 20px rgba(255,215,0,.3);
+
+}
+
+/* ===== Footer Social ===== */
+
+.footer-social{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+margin-top:20px;
+
+}
+
+.footer-social a{
+
+color:gold;
+
+font-size:22px;
+
+transition:.3s;
+
+}
+
+.footer-social a:hover{
+
+transform:scale(1.2);
+
+}
+
+/* ===== Premium Animation ===== */
+
+.zoom:hover{
+
+transform:scale(1.05);
+
+transition:.4s;
+
+}
+
+.rotate:hover{
+
+transform:rotate(2deg);
+
+transition:.4s;
+
+}
+
+.shadow{
+
+box-shadow:0 0 30px rgba(255,215,0,.35);
+
+  }
+/* ==========================================
+   STYLE.CSS - PART 6
+   Final Premium Effects
+========================================== */
+
+/* Premium Background Animation */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 20%,rgba(255,215,0,.15),transparent 30%),
+radial-gradient(circle at 80% 30%,rgba(0,255,255,.08),transparent 35%),
+radial-gradient(circle at 50% 80%,rgba(255,0,150,.08),transparent 35%);
+z-index:-1;
+animation:backgroundMove 15s linear infinite;
+}
+
+/* Glass Card */
+
+.glass-card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:20px;
+padding:25px;
+transition:.4s;
+}
+
+.glass-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 35px rgba(255,215,0,.5);
+}
+
+/* Search Box */
+
+.search-box{
+width:100%;
+padding:15px;
+border-radius:40px;
+border:none;
+outline:none;
+font-size:16px;
+margin:20px 0;
+background:#1f2937;
+color:white;
+}
+
+/* Statistics */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+}
+
+.stat-card{
+padding:25px;
+text-align:center;
+background:rgba(255,255,255,.08);
+border-radius:20px;
+}
+
+.stat-card h2{
+font-size:40px;
+color:gold;
+}
+
+.stat-card p{
+color:#ddd;
+}
+
+/* Timeline */
+
+.timeline-card{
+padding:20px;
+margin:20px 0;
+border-left:5px solid gold;
+background:rgba(255,255,255,.06);
+border-radius:15px;
+}
+
+/* Floating Button */
+
+.floating-btn{
+position:fixed;
+left:20px;
+bottom:20px;
+width:60px;
+height:60px;
+border-radius:50%;
+background:gold;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:28px;
+cursor:pointer;
+box-shadow:0 0 20px gold;
+z-index:999;
+}
+
+/* Hover Animation */
+
+.hover-up{
+transition:.4s;
+}
+
+.hover-up:hover{
+transform:translateY(-8px);
+}
+
+/* Gradient Text */
+
+.gradient-text{
+background:linear-gradient(90deg,#FFD700,#ff9800,#ffffff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* Fade Animation */
+
+.fade-in{
+animation:fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes backgroundMove{
+0%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-40px);
+}
+100%{
+transform:translateY(0);
+}
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.stats{
+grid-template-columns:1fr;
+}
+
+.floating-btn{
+width:50px;
+height:50px;
+font-size:22px;
+}
+
+  }
